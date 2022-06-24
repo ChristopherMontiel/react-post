@@ -1,0 +1,38 @@
+.App {
+  text-align: center;
+}
+
+body {
+  display: grid;
+  grid-template-columns: [x0] 1fr [x1] 1fr [x2] 1fr [x3];
+  grid-template-rows: [y0] 1fr [y1] 1fr [y2] 1fr [y3];
+  background-color: rgba(212, 205, 205, 0.752);
+  height: 200px;
+}
+
+header {
+  /* background: #1297FF; */
+  grid-column-start: x0;
+  grid-column-end: x3;
+  grid-row: y0 / y1;
+  text-align: center;
+}
+
+nav {
+  /* background: #ff0000; */
+  grid-row: y1 / y2;
+  grid-column: x1 / x2;
+  color: white;
+}
+
+main {
+  /* background: #c2c2c2; */
+  grid-row: y2 / y3;
+  grid-column: x1 / x2;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+footer {
+  grid-row: y3 / y4;
+  grid-column: x1 / x2;
+}
