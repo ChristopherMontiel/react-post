@@ -3,17 +3,18 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
+  console.log("ACTION TYPE ==== " + action.type);
   switch(action.type){
     case "ADD_POST":
       return {
         ...state,
         posts: [...state.posts, action.payload]
-      };
-    case "SET_NAME":
+      }
+    case "DEL_POST":
       return {
         ...state,
-        posts: [...state.posts, action.payload]
-      };
+        posts: state.posts.filter(item => item.name !== action.payload)
+      }
     default:
       return state;
   } 

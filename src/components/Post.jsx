@@ -1,12 +1,26 @@
 import React from 'react';
-const Post = ( { post } ) => {
+import { delPost } from "../store/action";
+import { connect } from "react-redux";
+
+const Post = ( { post, delPost } ) => {
+
+  const handleRemove = product => {
+    console.log("eliminando " + product.name);
+		delPost(product.name);
+	}
+
   return (
     <tr>
       <td> { post.name }</td>  
-      <td>Post de prueba 1</td>
-      <td><button>Eliminar</button></td>
+      <td> { post.desc } </td>
+      <td>
+        <button onClick={() => handleRemove(post)}>
+          Eliminar
+        </button>
+      </td>
     </tr>
   );
 }
 
-export default Post;
+//export default Post;
+export default connect(null,{ delPost }) (Post);

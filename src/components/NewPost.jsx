@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 const NewPost = ({addPost}) => {
   const form = useRef(null);
   
-  const handleClick = (event) => {
+  const handleAdd = (event) => {
     event.preventDefault();
     const formData = new FormData(form.current);
     const data = {
@@ -20,7 +20,7 @@ const NewPost = ({addPost}) => {
     <form action="/" className="form" ref={form}>
       <input type="text" name="Nombre" placeholder="Nombre"/>
       <input type="text" name="Descripción" placeholder="Descripción"/>
-      <button onClick={ handleClick }>Crear</button>
+      <button onClick={ handleAdd }>Crear</button>
     </form>
   );
 }
