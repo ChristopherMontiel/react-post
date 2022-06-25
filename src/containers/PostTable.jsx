@@ -1,10 +1,11 @@
 import React from 'react';
 import Post from "../components/Post";
+import {selectPosts} from "../store/reducer";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
   return{
-    amount: state.amountReducer.posts
+    posts: selectPosts(state)
   }
 }
 
@@ -17,13 +18,13 @@ const PostTable = ({ posts }) => {
           <td>Descripción</td>
           <td>Acción</td>
         </tr>
-        {/* {posts.map(po => (
-					<Post product = {po} />
-				))} */}
+        { posts.map(po => (
+					<Post post = {po} />
+				))} 
 
       </table>
     </main>
   );
 }
 
-export default connect(mapStateToProps, null)(PostTable);
+export default connect(mapStateToProps)(PostTable);

@@ -16,12 +16,7 @@ export default (state = initialState, action) => {
       };
     default:
       return state;
-  }
-  /* if(action.type === "DEL_POST"){
-    return {
-      ...state,
-      posts: state.posts.filter(items => items.id !== action.payload )
-    }
-  } */
- 
+  } 
 }
+
+export const selectPosts = state => state.amountReducer.posts;
