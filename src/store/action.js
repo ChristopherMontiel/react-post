@@ -5,10 +5,10 @@ const addPost = data => {
   };
 };
 
-const delPost = name => {
+const delPost = id => {
   return {
     type: "DEL_POST",
-    payload: name
+    payload: id
   };
 };
 

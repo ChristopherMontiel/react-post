@@ -6,7 +6,7 @@ const Post = ( { post, delPost } ) => {
 
   const handleRemove = product => {
     console.log("eliminando " + product.name);
-		delPost(product.name);
+		delPost(product.id);
 	}
 
   return (

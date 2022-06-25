@@ -1,14 +1,27 @@
 import React, {useRef} from 'react';
 import { addPost } from "../store/action";
+import { selectPosts } from "../store/reducer";
 import { connect } from "react-redux";
 
-const NewPost = ({addPost}) => {
+const mapStateToProps = (state) => {
+  return{
+    posts: selectPosts(state)
+  }
+}
+
+const NewPost = ({addPost, posts}) => {
   const form = useRef(null);
   
   const handleAdd = (event) => {
     event.preventDefault();
     const formData = new FormData(form.current);
+    //Se genera un ID único para cada post.
+    let idPost = 0;
+    if (posts.length !== 0){
+      idPost = posts[posts.length - 1].id + 1;
+    }
     const data = {
+      id: idPost, 
       name: formData.get('Nombre'),
       desc: formData.get('Descripción')
     }
@@ -25,4 +38,4 @@ const NewPost = ({addPost}) => {
   );
 }
 
-export default connect(null,{ addPost }) (NewPost);
+export default connect(mapStateToProps,{ addPost }) (NewPost);

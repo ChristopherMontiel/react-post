@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
     case "DEL_POST":
       return {
         ...state,
-        posts: state.posts.filter(item => item.name !== action.payload)
+        posts: state.posts.filter(item => item.id !== action.payload)
       }
     default:
       return state;
