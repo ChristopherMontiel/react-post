@@ -30,7 +30,7 @@ const NewPost = ({addPost, posts}) => {
   }
 
   return (
-    <form action="/" className="form" ref={form}>
+    <form action="/" className="NewPost" ref={form}>
       <input type="text" name="Nombre" placeholder="Nombre"/>
       <input type="text" name="Descripción" placeholder="Descripción"/>
       <button onClick={ handleAdd }>Crear</button>

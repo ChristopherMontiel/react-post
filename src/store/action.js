@@ -12,4 +12,18 @@ const delPost = id => {
   };
 };
 
-export {addPost, delPost};
+const addFilter = nameFilter => {
+  return {
+    type: "ADD_FILT",
+    payload: nameFilter
+  }
+}
+
+const delFilter = () => {
+  return {
+    type: "DEL_FILT",
+    payload: ""
+  }
+}
+
+export {addPost, delPost, addFilter, delFilter};

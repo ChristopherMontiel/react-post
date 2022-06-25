@@ -1,15 +1,25 @@
 import React from 'react';
 import Post from "../components/Post";
-import {selectPosts} from "../store/reducer";
+import {selectPosts, viewFilter} from "../store/reducer";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
   return{
-    posts: selectPosts(state)
+    posts: selectPosts(state),
+    filter: viewFilter(state)
   }
 }
 
-const PostTable = ({ posts }) => {
+const PostTable = ({ posts, filter }) => {
+  let filterActive = filter.filterActive;
+  let nameFilter = filter.nameFilter;
+  let postView = [];
+  if(filterActive){
+    postView = posts.filter(po => po.name === nameFilter);
+  }else{
+    postView = posts.slice();
+  }
+
   return (
     <main>
       <table>
@@ -18,7 +28,7 @@ const PostTable = ({ posts }) => {
           <td>Descripción</td>
           <td>Acción</td>
         </tr>
-        { posts.map(po => (
+        { postView.map(po => (
 					<Post post = {po} />
 				))} 
 
