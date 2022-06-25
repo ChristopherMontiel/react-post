@@ -1,30 +1,29 @@
-const PostTable = () => {
+import React from 'react';
+import Post from "../components/Post";
+import { connect } from "react-redux";
+
+const mapStateToProps = (state) => {
+  return{
+    amount: state.amountReducer.posts
+  }
+}
+
+const PostTable = ({ posts }) => {
   return (
     <main>
       <table>
-        <tbody><tr>
-          <td>Nombre </td>  
+        <tr>
+          <td>Nombre</td>  
           <td>Descripción</td>
           <td>Acción</td>
         </tr>
-        <tr>
-          <td>Post 1 </td>  
-          <td>Post de prueba 1</td>
-          <td><button>Eliminar</button></td>
-        </tr>
-        <tr>
-          <td>Post 2 </td>  
-          <td>Post de prueba 2</td>
-          <td><button>Eliminar</button></td>
-        </tr>
-        <tr>
-          <td>Post 3 </td>  
-          <td>Post de prueba 3</td>
-          <td><button>Eliminar</button></td>
-        </tr>
-      </tbody></table>
+        {/* {posts.map(po => (
+					<Post product = {po} />
+				))} */}
+
+      </table>
     </main>
   );
 }
 
-export default PostTable;
+export default connect(mapStateToProps, null)(PostTable);

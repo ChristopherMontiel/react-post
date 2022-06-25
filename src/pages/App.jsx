@@ -1,3 +1,4 @@
+import React from 'react';
 import Filter from '../components/Filter';
 import NewPost from '../components/NewPost';
 import PostTable from '../containers/PostTable';
