@@ -1,3 +1,5 @@
+import { useAddPosts, useDelPosts} from "../services/useApiPosts";
+
 const initPost = data => {
   return {
     type: "INI_POST",
@@ -6,6 +8,7 @@ const initPost = data => {
 };
 
 const addPost = data => {
+  useAddPosts(data);
   return {
     type: "ADD_POST",
     payload: data
@@ -13,6 +16,7 @@ const addPost = data => {
 };
 
 const delPost = id => {
+  useDelPosts(id);
   return {
     type: "DEL_POST",
     payload: id
