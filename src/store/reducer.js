@@ -9,6 +9,11 @@ const initialState = {
 export default (state = initialState, action) => {
   console.log("ACTION TYPE ==== " + action.type);
   switch(action.type){
+    case "INI_POST":
+      return {
+        posts: action.payload,
+        filter: state.filter
+      }
     case "ADD_POST":
       return {
         ...state,

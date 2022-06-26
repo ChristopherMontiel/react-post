@@ -11,6 +11,7 @@ const mapStateToProps = (state) => {
 }
 
 const PostTable = ({ posts, filter }) => {
+
   let filterActive = filter.filterActive;
   let nameFilter = filter.nameFilter;
   let postView = [];

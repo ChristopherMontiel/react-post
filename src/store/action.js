@@ -1,3 +1,10 @@
+const initPost = data => {
+  return {
+    type: "INI_POST",
+    payload: data
+  };
+};
+
 const addPost = data => {
   return {
     type: "ADD_POST",
@@ -26,4 +33,4 @@ const delFilter = () => {
   }
 }
 
-export {addPost, delPost, addFilter, delFilter};
+export {initPost, addPost, delPost, addFilter, delFilter};
