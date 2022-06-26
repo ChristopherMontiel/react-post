@@ -12,7 +12,7 @@ const Post = ( { post, delPost } ) => {
   return (
     <tr>
       <td> { post.name }</td>  
-      <td> { post.desc } </td>
+      <td> { post.description } </td>
       <td>
         <button onClick={() => handleRemove(post)}>
           Eliminar

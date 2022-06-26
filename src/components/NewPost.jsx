@@ -23,7 +23,7 @@ const NewPost = ({addPost, posts}) => {
     const data = {
       id: idPost, 
       name: formData.get('Nombre'),
-      desc: formData.get('Descripción')
+      description: formData.get('Descripción')
     }
     console.log(data);
     addPost(data);
